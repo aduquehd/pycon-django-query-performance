@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">ID</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Created at</th>
+      <th scope="col">Origin acc</th>
+      <th scope="col">Origin client name</th>
+      <th scope="col">Origin acc city</th>
+      <th scope="col">Origin acc country</th>
+      <th scope="col">Destination acc</th>
+      <th scope="col">Destination client name</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for transaction in transactions %}
+      <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{ transaction.id }}</td>
+      <td>{{ transaction.amount }}</td>
+      <td>{{ transaction.created_at }}</td>
+      <td>{{ transaction.origin_account.name }}</td>
+      <td>{{ transaction.origin_account.client.name }}</td>
+      <td>{{ transaction.origin_account.city.name }}</td>
+      <td>{{ transaction.origin_account.city.country.name }}</td>
+      <td>{{ transaction.destination_account }}</td>
+      <td>{{ transaction.destination_account.client.name }}</td>
+      <td>{{ transaction.status.name }}</td>
+    </tr>
+
+  {% endfor %}
+
+  </tbody>
+</table>
+{% endblock %}

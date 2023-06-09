@@ -1,0 +1,13 @@
+# Use postgres/example user/password credentials
+version: '3.1'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: vetdb
+      POSTGRES_USER: vetuser
+      POSTGRES_PASSWORD: vetpassword
+    ports:
+      - '5499:5432'
