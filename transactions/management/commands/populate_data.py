@@ -57,7 +57,7 @@ class Command(BaseCommand):
 
         seeder.add_entity(
             Account,
-            3000,
+            2000,
             {
                 "name": lambda x: seeder.faker.company(),
                 "created_at": lambda x: seeder.faker.date(),
@@ -74,7 +74,7 @@ class Command(BaseCommand):
 
         seeder.add_entity(
             Transaction,
-            10000,
+            100000,
             {
                 "amount": lambda x: random.randint(10, 70000),
                 "created_at": lambda x: seeder.faker.date(),
