@@ -1,3 +1,4 @@
+{# silk #}
 {% extends "base.html" %}
 {% load humanize %}
 
@@ -12,6 +13,7 @@
       <th scope="col">Client name</th>
       <th scope="col">Origin trans</th>
       <th scope="col">Destination trans</th>
+      <th scope="col">Approv Destination trans</th>
       <th scope="col">Status</th>
       <th scope="col">Provider</th>
       <th scope="col">Type</th>
@@ -35,6 +37,13 @@
         <td>
           <ul>
             {% for transaction in account.last_3_destination_transactions %}
+              <li>${{ transaction.amount|intcomma }} - {{ transaction.status.name }} </li>
+            {% endfor %}
+          </ul>
+        </td>
+        <td>
+          <ul>
+            {% for transaction in account.approved_destination_prefetch %}
               <li>${{ transaction.amount|intcomma }} - {{ transaction.status.name }} </li>
             {% endfor %}
           </ul>

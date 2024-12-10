@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load humanize %}
 
 {% block content %}
   <table class="table">
@@ -22,7 +23,7 @@
       <tr>
       <th scope="row">{{ forloop.counter }}</th>
       <td>{{ transaction.id }}</td>
-      <td>{{ transaction.amount }}</td>
+      <td>{{ transaction.amount|intcomma }}</td>
       <td>{{ transaction.created_at }}</td>
       <td>{{ transaction.origin_account.name }}</td>
       <td>{{ transaction.origin_account.client.name }}</td>

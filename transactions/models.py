@@ -2,7 +2,11 @@ from django.db import models
 from django.utils import timezone
 
 # Enums
-from transactions.models_enum import AccountStatusEnum, AccountTypeEnum
+from transactions.models_enum import (
+    AccountStatusEnum,
+    AccountTypeEnum,
+    TransactionStatusEnum,
+)
 
 
 class AccountStatus(models.Model):
@@ -16,7 +20,7 @@ class AccountStatus(models.Model):
 
 class TransactionStatus(models.Model):
     name = models.CharField(
-        choices=[(tag, tag.value) for tag in AccountTypeEnum], unique=True
+        choices=[(tag, tag.value) for tag in TransactionStatusEnum], unique=True
     )
 
     def __str__(self):
